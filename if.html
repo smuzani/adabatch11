@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>if ticket</title>
+	<script type="text/javascript">
+		var AGE = 33;
+		var TICKET = 10;
+		var discount;
+		if (AGE < 18) {
+			discount = 0.5;
+		} else if (AGE >= 19 && AGE < 40) {
+			discount = 0;
+		}
+
+		var price = TICKET * (1 - discount);
+		console.log("Price is RM" + price + " for age "+AGE);
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>
