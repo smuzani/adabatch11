@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>week 2 tutorial</title>
+	<script type="text/javascript">
+		// triangle
+		var LINES = 7;
+
+		var msg = "";
+		for (var i = 0; i < LINES; i++){
+			msg += "#"
+			console.log(msg);
+		}
+
+		// fizzbuzz
+		for (var i = 1; i <= 100; i++) {
+			var msg = "";
+			if (i % 15 == 0) {
+				msg = "FizzBuzz";
+			} else if (i % 3 == 0) {
+				msg = "Fizz";
+			} else if (i % 5 == 0) {
+				msg = "Buzz";
+			} else {
+				msg = i;
+			}
+			console.log(msg);
+		}
+
+	</script>
+</head>
+<body>
+</body>
+</html>
