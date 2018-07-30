@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>minmaxavg</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var array = [1,2,3,4,5];
+		function minMaxAvg(arr) {
+			var min = Math.min.apply(null, arr);
+			var max = Math.max.apply(null, arr);
+			var avg = avgArray(arr);
+			return [min, max, avg];
+		}
+
+		console.log("Min/max/avg is " + minMaxAvg(array));
+
+		function avgArray(arr) {
+			// use later
+			var sum = 0;
+
+			// number of items in array
+			var length = arr.length;
+
+			// go through the array and then add to "sum"
+			for (var i = 0; i < length; i++) {
+
+				// adds the element of the array to sum
+				sum += arr[i];
+			}
+
+			// divides sum by the number of items in array to get avg
+			var avg = sum / length;
+			return avg;
+		}
+
+
+		console.log(avgArray(array));
+		minMaxAvg(array);
+
+	</script>
+
+</body>
+</html>

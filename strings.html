@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>more string</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		function capitalizeString(str) {
+			var strArray = str.split(" ");
+			var result = "";
+			for (var i = 0; i < strArray.length; i++){
+				var word = strArray[i];
+				var firstLetter = word.charAt(0).toUpperCase();
+				var otherLetters = word.substring(1, word.length);
+				var capitalWord = firstLetter + otherLetters;
+				result += capitalWord + " ";
+				// console.log(capitalWord);
+			}
+
+			return result.trim();
+		}
+
+		document.write(capitalizeString("my name is muzani"));
+	</script>
+
+</body>
+</html>
