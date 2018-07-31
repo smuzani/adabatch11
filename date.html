@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>date time</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		function differenceInDays() {
+			var today = new Date();
+			var firstClass = new Date("Jul 16, 2018 19:00:00");
+			var difference = today.getTime() - firstClass.getTime();
+			var differenceInDays = difference/(1000*60*60*24); // ms, s, m, h
+			var msg = Math.round(differenceInDays) + ' days since we started coding!';
+			document.write(msg);
+		}
+
+		greet();
+
+		function greet() {
+			// var now = new Date();
+			var now = new Date("Jul 31, 2018 17:00:00");
+			var hours = now.getHours(); //22, 1, 5
+			
+			if (hours >= 7 && hours < 13) {
+				alert("Good Morning");
+			} else if (hours >= 13 && hours < 17) {
+				alert("Good Afternoon");
+			} else if (hours >= 17 && hours < 19) {
+				alert("Good Evening");
+			} else {
+				alert("Good Night");
+			}
+		}
+	</script>
+
+</body>
+</html>

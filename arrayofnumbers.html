@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Exercise: Array of numbers</title>
+</head>
+<body>
+	<h1>Help me with numbers!</h1>
+
+	<p>Enter numbers separated by comma (,)</p>
+	<input type="text" id="array">
+	<button onclick="calculateAverage()">Click me</button>
+
+	<script type="text/javascript">
+		function calculateAverage() {
+			var input = document.getElementById('array').value;
+			var numbers = input.split(",").map(Number);
+			var avg = avgArray(numbers);
+			document.write("Average: " + avg);
+		}
+
+		function avgArray(arr) {
+			// use later
+			var sum = 0;
+
+			// number of items in array
+			var length = arr.length;
+
+			// go through the array and then add to "sum"
+			for (var i = 0; i < length; i++) {
+
+				// adds the element of the array to sum
+				sum += arr[i];
+			}
+
+			// divides sum by the number of items in array to get avg
+			var avg = sum / length;
+			return avg;
+		}
+
+
+	</script>
+
+</body>
+</html>
