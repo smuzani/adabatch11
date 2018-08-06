@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Week 3 Tutorial</title>
+</head>
+<body>
+	<h1>Guess the number!</h1>
+	<h2>Enter the number</h2>
+	<input type="text" id="num">
+	<button onclick="guess()">Click me</button>
+	<p id="response"></p>
+
+	<script type="text/javascript">
+		var answer = Math.floor(Math.random() *100 + 1);
+		var chances = 3;
+
+		console.log("answer: "+answer);
+
+		function guess() {
+			chances--; // minus 1 chance after each guess
+			if (chances < 0) {
+				displayMessage("You have no guesses left.")
+				return;
+			}
+
+			var input = parseInt(document.getElementById("num").value);
+			if (input < answer) {
+				displayMessage("Your guess is too low.");
+				showGuessesLeft();
+			} else if (input > answer) {	
+				displayMessage("Your guess is too high.");
+				showGuessesLeft();
+			} else {
+				displayMessage("Correct!");
+			}
+		}
+
+		function displayMessage(msg) {
+			document.getElementById("response").innerHTML += msg + '<br>';
+		}
+
+		function showGuessesLeft() {
+			displayMessage("You have " + chances + " guesses left.<br>");
+		}
+	</script>
+
+</body>
+</html>

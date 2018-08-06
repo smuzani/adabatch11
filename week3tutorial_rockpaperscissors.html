@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>rock paper scissors</title>
+</head>
+<body>
+	<img src="rps\rock.png" height="100" onclick="rock()">
+	<img src="rps\paper.png" height="100" onclick="paper()">
+	<img src="rps\scissors.png" height="80" onclick="scissors()">
+	<p id="response"></p>
+
+	<script type="text/javascript">
+		var ROCK = 0;
+		var PAPER = 1;
+		var SCISSORS = 2;
+
+		var computerMove = -1;
+
+		function rock() {
+			moveComputer();
+
+			if (computerMove === ROCK) {
+				displayMessage("You tie.");
+			} else if (computerMove === PAPER) {
+				displayMessage("You lose.");
+			} else if (computerMove === SCISSORS) {
+				displayMessage("You win.");
+			}
+		}
+
+		function paper() {
+			moveComputer();
+
+			switch(computerMove) {
+				case ROCK:
+					displayMessage("You win.")
+					break;
+				case PAPER:
+					displayMessage("You tie.");
+					break;
+				case SCISSORS:
+					displayMessage("You lose.");
+					break;
+			}
+		}
+
+		function scissors() {
+			moveComputer();
+
+			switch(computerMove) {
+				case ROCK:
+					displayMessage("You lose.");
+					break;
+				case PAPER:
+					displayMessage("You win.")
+					break;
+				case SCISSORS:
+					displayMessage("You tie.");
+					break;
+			}
+		}
+
+		function displayMessage(msg) {
+			document.getElementById("response").innerHTML += msg + '<br>';
+		}
+
+		function moveComputer() {
+			computerMove = Math.floor(Math.random() * 3);
+			console.log("computer's move: " + computerMove);
+		}
+	</script>
+
+</body>
+</html>
