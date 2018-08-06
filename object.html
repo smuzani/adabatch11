@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>object</title>
+	<script type="text/javascript">
+		function Book (title, author, pages) {
+			this.title = title;
+			this.author = author;
+			this.pages = pages;
+			this.read = function() {
+				return ++this.pages;
+			};
+
+			this.buy = function() {
+				console.log(this.title + ", by " + this.author  + " has been purchased!")
+			};			
+		}
+
+		var bookA = new Book("A", "aa", 20);
+		var bookB = new Book("B", "bb", 30);
+		var bookC = new Book("C", "cc", 40);
+		var bookD = new Book("D", "dd", 50);
+
+		bookD.buy();
+	</script>
+</head>
+<body>
+
+</body>
+</html>
