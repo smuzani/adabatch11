@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Week 3 Tutorial</title>
+	<script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.js"></script>
 </head>
 <body>
 	<h1>Guess the number!</h1>
@@ -24,7 +25,8 @@
 				return;
 			}
 
-			var input = parseInt(document.getElementById("num").value);
+			// var input = parseInt(document.getElementById("num").value);
+			var input = parseInt($('#num').val());
 			if (input < answer) {
 				displayMessage("Your guess is too low.");
 				showGuessesLeft();

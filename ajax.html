@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>ajax</title>
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$.ajax({
+				url:"http://randomuser.me/api",
+				success: function(result){
+					console.log(result.results[0]);
+					var person = result.results[0];
+
+					var firstName = capitalizeString(person.name.first);
+					var lastName = capitalizeString(person.name.last);
+					var name = firstName + " " + lastName;
+					var email = person.email;
+					var phone = person.phone;
+					var dateString = person.dob.date;
+					var dob = convertToReadableDate(dateString);
+
+					var street = person.location.street;
+					var city = person.location.city;
+					var state = person.location.state;
+					var postcode = person.location.postcode;
+					var address = capitalizeString(street + ", " + city + ", " + postcode + " " + state);
+
+					var profileUrl = person.picture.large;
+					$('#name').text(name);
+					$('#email').text(email);
+					$('#phone').text(phone);
+					$('#dob').text(dob);
+					$('#address').text(address);
+					$("#profilePic").attr("src", profileUrl);
+				}
+			});
+		});
+
+		function convertToReadableDate(dateOriginal) {
+			var date = new Date(dateOriginal);
+			var month = date.getMonth() + 1;
+			var dob = date.getDate() + "/" + month + "/" + date.getFullYear();
+			return dob;
+		}
+
+		function capitalizeString(str) {
+			var strArray = str.split(" ");
+			var result = "";
+			for (var i = 0; i < strArray.length; i++){
+				var word = strArray[i];
+				var firstLetter = word.charAt(0).toUpperCase();
+				var otherLetters = word.substring(1, word.length);
+				var capitalWord = firstLetter + otherLetters;
+				result += capitalWord + " ";
+				// console.log(capitalWord);
+			}
+
+			return result.trim();
+		}
+	</script>
+</head>
+<body>
+	<img id="profilePic">
+	<p>My name is <span id="name"></span></p>
+	<p>Email: <span id="email"></span></p>
+	<p>Phone: <span id="phone"></span></p>
+	<p>Date of birth: <span id="dob"></span></p>
+	<p>Address: <span id="address"></span></p>
+</body>
+</html>

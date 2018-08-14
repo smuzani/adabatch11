@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>rock paper scissors</title>
+	<script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.js"></script>
 </head>
 <body>
 	<img src="rps\rock.png" height="100" onclick="rock()">
@@ -62,7 +63,8 @@
 		}
 
 		function displayMessage(msg) {
-			document.getElementById("response").innerHTML += msg + '<br>';
+			$('#response').append(msg + '<br>');
+			// document.getElementById("response").innerHTML += msg + '<br>';
 		}
 
 		function moveComputer() {

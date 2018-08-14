@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>event listener</title>
+</head>
+<body>
+	<img src="klcc.jpg" height="200" id="klcc">
+	<script type="text/javascript">
+		var klcc = document.getElementById("klcc");
+		klcc.onmouseover = mouseover;
+		// klcc.onmouseout = mouseout;
+		klcc.addEventListener("mouseout", mouseout);
+		klcc.addEventListener("click", function(){
+			console.log('klcc clicked');
+		});
+
+		function mouseover() {
+			console.log('mouse over klcc');
+		}
+
+		function mouseout() {
+			console.log('mouse not over klcc');
+		}
+
+	</script>
+</body>
+</html>
