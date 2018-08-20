@@ -6,6 +6,8 @@
 	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
+			var url = "https://sheetdb.io/api/v1/5b6d4c46ce705";
+
 			$('#submit').click(function(){
 				var id = $('#id').val();
 				var name = $('#name').val();
@@ -21,12 +23,23 @@
 
 				console.log(data);
 
-				var url = "https://sheetdb.io/api/v1/5b6d4c46ce705";
-
 				$.post(url, data, function(result, status){
 					console.log(result);
 					console.log("Status:" + status);
 				});
+			});
+
+			$.ajax({
+				url:url,
+				success: function(result){
+					var list = $('#names');
+					list.empty();
+	                for (var i = 0; i < result.length; i++) {
+						console.log(result);
+	                	var person = result[i];
+	                    list.append('<li>' + person.name + '</li>');
+	                }  
+				}
 			});
 		});
 	</script>
@@ -39,5 +52,10 @@
 	<label>Phone</label>
 	<input type="text" id="phone" placeholder="0123456789"> <br>
 	<button id="submit">Submit</button>
+
+	<h2>Names</h2>
+	<ul id="names">
+		
+	</ul>
 </body>
 </html>
