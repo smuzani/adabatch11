@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"></meta>
+	<title>sheetDB</title>
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#submit').click(function(){
+				var id = $('#id').val();
+				var name = $('#name').val();
+				var phone = $('#phone').val();
+
+				var data = {
+					"data":[{
+				        "id": id,
+				        "name": name,
+				        "phone": phone
+					}]					
+				};
+
+				console.log(data);
+
+				var url = "https://sheetdb.io/api/v1/5b6d4c46ce705";
+
+				$.post(url, data, function(result, status){
+					console.log(result);
+					console.log("Status:" + status);
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+	<label>ID</label>
+	<input type="text" id="id" placeholder="0"> <br>
+	<label>Name</label>
+	<input type="text" id="name" placeholder="Ali"> <br>
+	<label>Phone</label>
+	<input type="text" id="phone" placeholder="0123456789"> <br>
+	<button id="submit">Submit</button>
+</body>
+</html>
