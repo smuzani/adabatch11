@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>WOD w7</title>
+	<script type="text/javascript">
+		console.log(getPrimeFactors(13195));
+
+		function getPrimeFactors(n) {
+			var factors = getFactors(n);
+			var primeFactors = filterPrimeNumbers(factors);
+			return primeFactors;
+		}
+
+		function getFactors(n) {
+			var factors = [];
+
+			// Check if i is a factor
+			for (var i = 2; i < n; i++) {
+				if (n % i == 0) { // if divisible
+					factors.push(i);
+				}
+			}
+			return factors;
+		}
+
+		function filterPrimeNumbers(arr){
+			var filteredArray = [];
+
+			// Check if i is a prime number
+			for (var i = 0; i < arr.length; i++) {
+				var number = arr[i];
+				if (isPrime(number)) {
+					filteredArray.push(number);
+				}
+			}
+
+			return filteredArray;
+		}
+
+		function isPrime(n) {
+			for (var i = 2; i < n; i++){
+				if (n % i == 0) { // if divisible by any number
+					return false;
+				}
+			}
+
+			return true;
+		}
+	</script>
+
+</head>
+<body>
+
+</body>
+</html>
