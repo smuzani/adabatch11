@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>video</title>
+</head>
+<body>
+	<div id="video">
+		<video id="myVideo" src="media/pencils.mp4" height="400" poster="klcc.jpg" muted loop></video>
+	</div>
+
+	<div id="video-controls">
+		<button id="playBtn">Play</button>
+		<input type="range" id="seekBar" value="0">
+	</div>
+
+	<script type="text/javascript">
+		window.onload = function () {
+			var video = document.getElementById("myVideo");
+			var playBtn = document.getElementById("playBtn");
+			var seekBar = document.getElementById("seekBar");
+			playBtn.addEventListener("click", function(e){
+				video.play();
+			});
+			seekBar.addEventListener("change", function(e){
+				var time = video.duration * (seekBar.value/100);
+				video.currentTime = time;
+			});
+			video.addEventListener("timeupdate", function(){
+				var value = (100 / video.duration) * video.currentTime;
+				seekBar.value = value;
+			});
+			seekBar.addEventListener("mousedown", function(){
+				video.pause();
+			});
+			seekBar.addEventListener("mouseup", function(){
+				video.play();
+			});
+		}
+	</script>
+
+</body>
+</html>
