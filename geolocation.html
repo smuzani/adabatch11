@@ -13,6 +13,7 @@
 				function(position){
 					var lat1 = position.coords.latitude;
 					var lon1 = position.coords.longitude;
+					console.log(lat1 + ", " +lon1);
 					var lat2 = 4.6099496;
 					var lon2 = 101.0213947;
 					var distance = haversine(lat1, lon1, lat2, lon2);

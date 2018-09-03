@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Vue</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<p>{{message2}}</p>
+		<p v-text="'hello, ' + user.firstName + ' ' + user.lastName"></p>
+		<ol>
+			<li v-for="aa in todos">
+				{{ aa.text }}
+			</li>
+		</ol>
+	</div>
+
+	<script type="text/javascript">
+		var app = new Vue({
+			el: '#app',
+			data: {
+				message: 'Hello World!',
+				message2: 'hi',
+				user: {
+					firstName: 'Syed',
+					lastName: 'Muzani'
+				},
+				todos: [
+					{text: "Learn Javascript"},
+					{text: "2"},
+					{text: "three"}
+				]
+			}
+		});
+	</script>
+
+</body>
+</html>
