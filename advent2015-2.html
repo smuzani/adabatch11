@@ -14,11 +14,27 @@
 		            if(rawFile.status === 200 || rawFile.status == 0) {
 		                var allText = rawFile.responseText;
 		                var question = allText.split("\r\n");
-		                console.log(question);
+		                console.log(calculate(question));
 		            }
 		        }
 		    }
 		    rawFile.send(null);
+		}
+
+		function calculate(array) {
+			var wrappingPaper = 0;
+			for (var i = 0; i < array.length; i++){
+				var dimen = array[i].split("x");
+				var l = dimen[0];
+				var w = dimen[1];
+				var h = dimen[2];
+				var area = 2*l*w + 2*w*h + 2*h*l;
+				var smallestSide = Math.min(l*w, w*h, h*l);
+				wrappingPaper += area + smallestSide;
+				// console.log(l + "," + w + "," + h);
+			}
+
+			return wrappingPaper;
 		}
 	</script>
 </head>
